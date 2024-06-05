@@ -1,0 +1,19 @@
+php_value display_errors Off
+php_value mbstring.http_input auto
+ErrorDocument 404 /index.html
+ErrorDocument 403 /index.html
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^/]+)/?$ $1.html [L]
+RewriteCond %{QUERY_STRING} ^(.*)i=[^&]+(.*)$ [NC]
+
+# Only use these two lines of code below if you're using InfinityFree. It removes the "?i=1" parameter
+RewriteRule ^(.*)$ /$1?%1%2 [R=301,L]
+RewriteCond %{HTTP_HOST} ^searchify\.rf\.gd$ [NC]
+RewriteEngine On
+
+# Redirect URLs with "q" parameter having no value or existing without a value
+RewriteCond %{QUERY_STRING} ^q(?:&|$) [NC,OR]
+RewriteCond %{QUERY_STRING} ^q=$ [NC]
+RewriteRule ^$ /? [L,R=301]
