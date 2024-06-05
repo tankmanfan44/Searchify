@@ -32,8 +32,8 @@ $random_number = rand(20, 60);
     <meta name="twitter:title" content="Searchify - Searching Beyond Boundaries">
     <meta name="twitter:description" content="Find what you need quickly and effortlessly. Explore the web without boundaries with Searchify.">
     <meta name="twitter:image" content="/images/twitter_img.png">
-    <meta property="og:image" content="/images/favicon.ico">
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <meta property="og:image" content="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
     <link rel="stylesheet" href="search.css">
     <title><?php echo getPageTitle(); ?></title>
