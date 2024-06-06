@@ -316,7 +316,7 @@ function haha() {
   <div class="modal-content">
     <span class="close">&times;</span>
     <p style="font-weight:700; font-size:25px;">About Searchify</p>
-    <p style="font-size:15;">Searchify: Searching Beyond Boundaries</p>
+    <p style="font-size:14px;">Searchify: Searching Beyond Boundaries</p>
     <p><b>Searchify</b> is dedicated to providing the most comprehensive and user-friendly search experience. Our innovative technology and commitment to excellence ensure that users can find the information they need quickly and efficiently. Join us in exploring the vast world of information with the click of a button!</p>
   </div>
 </div>
