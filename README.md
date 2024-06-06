@@ -1,5 +1,4 @@
-# Searchify
-Searching Beyond Boundaries
+# Searchify - Searching Beyond Boundaries
 
 More information: https://screamer.wiki/Searchify
 
