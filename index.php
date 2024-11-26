@@ -32,8 +32,8 @@ $random_number = rand(20, 60);
     <meta name="twitter:title" content="Searchify - Searching Beyond Boundaries">
     <meta name="twitter:description" content="Find what you need quickly and effortlessly. Explore the web without boundaries with Searchify.">
     <meta name="twitter:image" content="/images/twitter_img.png">
-    <meta property="og:image" content="favicon.ico">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta property="og:image" content="/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
     <link rel="stylesheet" href="search.css">
     <title><?php echo getPageTitle(); ?></title>
@@ -165,7 +165,7 @@ if(isset($_GET['q'])) {
                     <p style="text-decoration: none; color: #4285f4; margin-right: 10px; display: inline-block; cursor:pointer;">About</p>
                     <p style="text-decoration: none; color: #4285f4; margin-right: 10px; display: inline-block; cursor:pointer;">Privacy Policy</p>
                 </div>
-    <p align="center">© ' . date("Y") . ' - Searchify. All Rights Reserved</p></div>
+    <p align="center" style="font-size: 14px; color:#666">© ' . date("Y") . ' - Searchify. All Rights Reserved</p></div>
 
 <script>
 var clickCount = 0;
@@ -397,7 +397,7 @@ function haha() {
 <br>
   </div>
 </div>
-<p align="center">© ' . date("Y") . ' - Searchify. All Rights Reserved</p>
+<p align="center" style="font-size: 14px; color:#666">© ' . date("Y") . ' - Searchify. All Rights Reserved</p>
         </div>
     </div>
         ';
