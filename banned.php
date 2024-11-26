@@ -88,7 +88,7 @@
     </div>
 
     <div class="footer">
-        &copy; <?php echo date('Y'); ?> Searchify. All rights reserved.
+        &copy; <?php echo date('Y'); ?> - Searchify. All rights reserved.
     </div>
 
     <div id="overlay"></div>
