@@ -1,19 +1,26 @@
 php_value display_errors Off
 php_value mbstring.http_input auto
+
 ErrorDocument 404 /index.html
 ErrorDocument 403 /index.html
+
 RewriteEngine On
+
+# 1) Redirect any direct "/name.php" request to "/name"
+RewriteCond %{THE_REQUEST} \s/([^\s]+)\.php[?\s] [NC]
+RewriteRule ^([^\s]+)\.php$ /$1 [L,R=301]
+
+# 2) Internally serve "name.php" when a user visits "/name"
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^/]+)/?$ $1.php [L]
+
+# 3) Internally serve "name.html" when a user visits "/name"
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^([^/]+)/?$ $1.html [L]
-RewriteCond %{QUERY_STRING} ^(.*)i=[^&]+(.*)$ [NC]
 
-# Only use these two lines of code below if you're using InfinityFree. It removes the "?i=1" parameter
-RewriteRule ^(.*)$ /$1?%1%2 [R=301,L]
-RewriteCond %{HTTP_HOST} ^searchify\.rf\.gd$ [NC]
-RewriteEngine On
-
-# Redirect URLs with "q" parameter having no value or existing without a value
-RewriteCond %{QUERY_STRING} ^q(?:&|$) [NC,OR]
-RewriteCond %{QUERY_STRING} ^q=$ [NC]
-RewriteRule ^$ /? [L,R=301]
+# 4) Redirect "/search" if "q" parameter is missing or empty
+RewriteCond %{REQUEST_URI} ^/search$ [NC]
+RewriteCond %{QUERY_STRING} (^|&)q=?(&|$) [NC]
+RewriteRule ^search$ / [L,R=302]
