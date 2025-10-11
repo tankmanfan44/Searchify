@@ -1,14 +1,17 @@
+<?php 
+    $images = ["/./images/s9d6er.png", "/./images/egvrf0.jpg"];
+    $randomImage = $images[array_rand($images)];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
     <title>Banned</title>
     <style>
-    <?php 
-        $images = ["/./images/s9d6er.png", "/./images/egvrf0.jpg"];
-        $randomImage = $images[array_rand($images)];
-    ?>
         body {
             display: flex;
             flex-direction: column;
@@ -16,7 +19,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: Inter;
             background-color: #f0f0f0;
         }
         .container {
@@ -81,7 +84,7 @@
 </head>
 <body>
     <div class="container">
-        <img src="/./images/searchify_logo.svg" alt="Searchify Logo" width="400px">
+        <img src="/./images/searchify.svg" alt="Searchify" width="400px">
         <small><h1>Your IP address <span style="color:red"><?php echo $_SERVER['REMOTE_ADDR']; ?></span> has been blocked.</h1></small>
         <p>Think this was done in error?</p>
             <button id="contactLink">Contact us</button>
