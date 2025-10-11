@@ -1,3 +1,19 @@
+<?php
+$request = $_SERVER['REQUEST_URI'];
+
+if ($request === '/search' && empty($_GET['q'])) {
+    header('Location: /', true, 302);
+    exit;
+}
+
+if (file_exists(__DIR__ . "$request.php")) {
+    require __DIR__ . "$request.php";
+} elseif (file_exists(__DIR__ . "$request.html")) {
+    readfile(__DIR__ . "$request.html");
+} else {
+    readfile(__DIR__ . "/index.html");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,3 +57,4 @@
     </script>
 </body>
 </html>
+
