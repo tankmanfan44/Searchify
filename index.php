@@ -1,3 +1,65 @@
+<?php
+// Your IPQualityScore API key (get one free at ipqualityscore.com)
+$API_KEY = 'YOUR_API_KEY_HERE';
+
+// Gather user info
+$user_agent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+$ip = $_SERVER['REMOTE_ADDR'] ?? '';
+
+// Call the external bot checker
+$api_url = "https://ipqualityscore.com/api/json/bot/$API_KEY/$ip?user_agent=" . urlencode($user_agent);
+
+// Use file_get_contents or curl to query the API
+$response = @file_get_contents($api_url);
+$is_bot = false;
+
+if ($response !== false) {
+    $data = json_decode($response, true);
+    if (!empty($data['bot']) && $data['bot'] === true) {
+        $is_bot = true;
+    }
+}
+
+// If it's a bot, render the pirate message
+if ($is_bot) {
+    header("Content-Type: text/html; charset=UTF-8");
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>No Bots Allowed</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #fff3f3;
+                color: #333;
+                padding: 50px;
+                text-align: center;
+            }
+            h1 {
+                color: red;
+                font-weight: bold;
+            }
+            p {
+                font-size: 1.1em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Avast Ye Bloody Clanker!</h1>
+        <p>
+            This site is for humans only.<br>
+            Automated crawlers and bots are not allowed here.
+        </p>
+    </body>
+    </html>
+    <?php
+    exit;
+}
+
+// Otherwise, show normal content
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,5 +103,6 @@
     </script>
 </body>
 </html>
+
 
 
